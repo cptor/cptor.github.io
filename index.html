@@ -42,15 +42,26 @@
 				text-align: center;
 			}
 			#test::before {
-				content: 'LOL';
+				content: 'Tor Browser sunucusuna bağlanılıyor...';
 				position: relative;
-				top: 6em;
+				top: 4em;
+				font-size: 1.4em;
+				font-weight: bold;
+				color: #420C5D;
+				filter: drop-shadow(1px 0px 0px #420C5D);
+				font-family: roboto;
+			}
+			#verified {
+				width: 2.5em;
+				display: none;
 			}
 		</style>
 		<script async>
-			if (navigator.plugins.length === 0) {
-				alert("Hata: Tarayıcı bu özellikleri içermiyor!");
-			}
+			/*setTimeout(function() {
+				if (navigator.plugins.length === 0) {
+					window.location.href = "hata_sayfasi.html";
+				}
+			}, 13000);*/
 
 			document.addEventListener('DOMContentLoaded', function() {
 				document.body.style.overflow = 'hidden';
@@ -59,6 +70,47 @@
 				}
 				window.addEventListener('scroll', disableScroll);
 			});
+			
+			setTimeout(function() {
+				document.getElementById("loading").style.display = "none";
+			}, 14500);
+		
+			setTimeout(function() {
+				document.getElementById("verified").style.display = "block";
+			}, 14500);
+			
+			setTimeout(function() {
+				document.querySelector("body").style.background = "#21212f";
+				document.querySelector("body").style.transition = "300ms all";
+				var style = document.createElement('style');
+				style.innerHTML = `
+					#test::before {
+						content: 'Başarılı!' !important;
+						color: #ffffff !important;
+					}
+				`;
+				document.head.appendChild(style);
+		
+				document.getElementById("st1").setAttribute('stop-color', '#ffffff');
+				document.getElementById("st2").setAttribute('stop-color', '#dfdfdf');
+			}, 14500);
+			setTimeout(function() {
+				document.body.innerHTML = "";
+				var newContent = `
+					<!DOCTYPE html>
+					<html lang="en">
+						<head>
+							<meta charset="UTF-8">
+							<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+							<title>New Page</title>
+						</head>
+						<body>
+							<iframe src="https://www.google.com" width="100%" height="100%" style="position:absolute;top:0;left:0;bottom:0;border:none;"></iframe>
+						</body>
+					</html>
+				`;
+				document.body.innerHTML = newContent;
+			}, 18000);
 		</script>
 	</head>
 	<body>
@@ -86,6 +138,13 @@
 					repeatCount="indefinite"
 					dur="750ms">
 				</animateTransform>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 109.76" fill-rule="evenodd" clip-rule="evenodd" fill="url(#grad1)" id="verified">
+				<linearGradient x1="50%" y1="100%" x2="50%" y2="0%" id="grad1">
+					<stop offset="0%" stop-color="#420C5D" id="st1"/>
+					<stop offset="100%" stop-color="#951AD1" id="st2"/>
+				</linearGradient>
+				<path d="M0,52.88l22.68-0.3c8.76,5.05,16.6,11.59,23.35,19.86C63.49,43.49,83.55,19.77,105.6,0h17.28 C92.05,34.25,66.89,70.92,46.77,109.76C36.01,86.69,20.96,67.27,0,52.88L0,52.88z"/>
 			</svg>
 		</main>
 	</body>
