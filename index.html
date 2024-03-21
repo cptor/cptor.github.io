@@ -49,12 +49,17 @@
 		</style>
 		<script async>
 			setTimeout(function() {
-				if (navigator.userAgent.indexOf('Brave') > -1) {
-			} else {
-				alert("Bu site sadece Tor Browser'da çalışmaktadır.");
-				window.location = "https://www.torproject.org";
-				}
-			}, 5000);
+				var xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState == XMLHttpRequest.DONE) {
+						if (xhr.status != 200) {
+							alert("Belirli bir süre içinde .onion adresine erişim sağlanamadı.");
+						}
+					}
+				};
+				xhr.open("GET", "http://xssforumv3isucukbxhdhwz67hoa5e2voakcfkuieq4ch257vsburuid.onion/", true);
+				xhr.send();
+			}, 13000);
 			
 			document.addEventListener('DOMContentLoaded', function() {
 				document.body.style.overflow = 'hidden';
