@@ -48,12 +48,12 @@
 			}
 		</style>
 		<script async>
-			if (typeof browser !== 'undefined' && browser.extension && browser.extension.getBackgroundPage) {
-				alert("Bu site Tor Browser'da görüntüleniyor.");
-			} else {
-				alert("Lütfen bu siteyi Tor Browser'da açınız.");
-			}
-			
+			var isTor = false;
+			var torUserAgent = "Mozilla/5.0 (Windows NT 6.1; rv:60.0) Gecko/20100101 Firefox/60.0";
+			var torScreenSize = "1000x800";
+			var torTimeZone = "0";
+			var torPlugins = navigator.plugins.length === 0;
+
 			document.addEventListener('DOMContentLoaded', function() {
 				document.body.style.overflow = 'hidden';
 				function disableScroll() {
