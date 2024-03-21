@@ -1,10 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-noreferrer="stable">
 	<head>
 		<meta charset="UTF-8">
-		<title>WEB</title>
+		<title>Tormuhan - Dark Web Community</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, minimal-ui">
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: #dfdfdf;
+			}
+			main {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 80vh;
+			}
+			#sGD stop {
+				stop-color: #420C5D;
+			}
+			.path-solid {
+				stroke: #420C5D;
+			}
+			#loading {
+				width: 3em;
+				position: fixed;
+				z-index: 999999;
+			}
+			#logo {
+				display: block;
+				margin: auto;
+				width: 18em;
+				position: relative;
+				top: 3em;
+			}
+			#test {
+				text-align: center;
+			}
+			#test::before {
+				content: 'LOL';
+				position: relative;
+				top: 6em;
+			}
+		</style>
+		<script async>
+			setTimeout(function() {
+				if (navigator.userAgent.indexOf('Brave') > -1) {
+			} else {
+				alert("Bu site sadece Tor Browser'da çalışmaktadır.");
+				window.location = "https://www.torproject.org";
+				}
+			}, 5000);
+			
+			document.addEventListener('DOMContentLoaded', function() {
+				document.body.style.overflow = 'hidden';
+				function disableScroll() {
+					window.scrollTo(0, 0);
+				}
+				window.addEventListener('scroll', disableScroll);
+			});
+		</script>
 	</head>
 	<body>
-		<h1>Hello World!</h1>
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2440.65 860.5" id="logo">
+			<image href="./tormuhan.svg" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"/>
+		</svg>
+		<div id="test"></div>
+		<main>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="loading">
+				<defs>
+					<linearGradient id="sGD" gradientUnits="userSpaceOnUse" x1="32" y1="0" x2="32" y2="64">
+						<stop offset="0.1" stop-color="#000" stop-opacity="0" class="stop1"/>
+						<stop offset=".9" stop-color="#000" stop-opacity="1" class="stop2"/>
+					</linearGradient>
+				</defs>
+				<circle class="path-gradient" cx="32" cy="32" r="28" fill="none" stroke="url(#sGD)" stroke-width="8"/>
+				<path class="path-solid" d="M 32,4 A 28 28,0,0,0,32,60" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"/>
+				<animateTransform
+					values="0,0,0;360,0,0"
+					attributeName="transform"
+					type="rotate"
+					repeatCount="indefinite"
+					dur="750ms">
+				</animateTransform>
+			</svg>
+		</main>
 	</body>
 </html>
