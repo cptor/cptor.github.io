@@ -48,18 +48,11 @@
 			}
 		</style>
 		<script async>
-			setTimeout(function() {
-				var xhr = new XMLHttpRequest();
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState == XMLHttpRequest.DONE) {
-						if (xhr.status != 200) {
-							alert("Belirli bir süre içinde .onion adresine erişim sağlanamadı.");
-						}
-					}
-				};
-				xhr.open("GET", "http://zqktlwi4fecvo6ri.onion/wiki/index.php", true);
-				xhr.send();
-			}, 13000);
+			if (window.navigator.userAgent.includes("Tor")) {
+				console.log("Bu site Tor Browser'da görüntüleniyor.");
+			} else {
+				alert("Lütfen Tor Browser kullanın.");
+			}
 			
 			document.addEventListener('DOMContentLoaded', function() {
 				document.body.style.overflow = 'hidden';
