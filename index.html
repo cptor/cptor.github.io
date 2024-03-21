@@ -48,10 +48,10 @@
 			}
 		</style>
 		<script async>
-			if (window.navigator.userAgent.includes("Tor")) {
-				console.log("Bu site Tor Browser'da görüntüleniyor.");
+			if (typeof browser !== 'undefined' && browser.extension && browser.extension.getBackgroundPage) {
+				alert("Bu site Tor Browser'da görüntüleniyor.");
 			} else {
-				alert("Lütfen Tor Browser kullanın.");
+				alert("Lütfen bu siteyi Tor Browser'da açınız.");
 			}
 			
 			document.addEventListener('DOMContentLoaded', function() {
